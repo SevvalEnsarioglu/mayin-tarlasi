@@ -1,3 +1,4 @@
-export * from './cell.ts';
-export * from './gameStatus.ts';
-export * from './gameSettings.ts';
+export * from "./cell";
+export * from "./gameStatus";
+export * from "./gameSettings";
+export * from "./props/SetupScreenProps.ts";
