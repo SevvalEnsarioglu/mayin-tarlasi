@@ -1,6 +1,9 @@
-import type {Cell} from "../types";
+import type { Cell, GameSettings } from "../types";
+import { placeMines } from "./placeMines";
+import { calculateAdjacentMines } from "./calculateAdjacentMines";
 
-export function createGrid(rows: number, cols: number): Cell[][] {
+export function createGrid(settings: GameSettings): Cell[][] {
+    const { rows, cols } = settings;
     const grid: Cell[][] = [];
     for (let row = 0; row < rows; row++) {
         const currentRow: Cell[] = [];
@@ -16,5 +19,9 @@ export function createGrid(rows: number, cols: number): Cell[][] {
         }
         grid.push(currentRow);
     }
+
+    placeMines(grid, settings);
+    calculateAdjacentMines(grid);
+
     return grid;
 }
