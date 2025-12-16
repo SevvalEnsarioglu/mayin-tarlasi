@@ -1,18 +1,20 @@
-import { useState } from 'react'
-
-import './App.css'
+import { useState } from "react";
+import SetupScreen from "./components/SetupScreen";
+import GameScreen from "./components/GameScreen";
+import type { GameSettings } from "./types";
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [settings, setSettings] = useState<GameSettings | null>(null);
 
-  return (
-    <>
-        <div>
-            <h1>Mayın Tarlası Oyunu</h1>
-            <p>Mayın tarlasına hoş geldiniz! Amacınız mayınlara basmadan tüm güvenli kareleri açmaktır.</p>
+    return (
+        <div className="app">
+            {!settings ? (
+                <SetupScreen onStart={setSettings} />
+            ) : (
+                <GameScreen settings={settings} />
+            )}
         </div>
-    </>
-  )
+    );
 }
 
-export default App
+export default App;
