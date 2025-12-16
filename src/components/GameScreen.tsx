@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import type { GameSettings, Cell } from "../types";
+import type { Cell } from "../types";
 import { createGrid } from "../utils/createGrid";
+import type { GameScreenProps } from "../types/props/";
 
-type Props = {
-    settings: GameSettings;
-    onBack: () => void;
-};
 
-export default function GameScreen({ settings, onBack }: Props) {
+export default function GameScreen({ settings, onBack }: GameScreenProps) {
     const [grid, setGrid] = useState<Cell[][]>([]);
 
     useEffect(() => {
