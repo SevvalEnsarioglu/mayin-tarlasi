@@ -3,3 +3,4 @@ export * from "./gameStatus";
 export * from "./gameSettings";
 export * from "./props/SetupScreenProps.ts";
 export * from "./props/GameScreenProps.ts";
+export * from "./props/CellProps.ts";
